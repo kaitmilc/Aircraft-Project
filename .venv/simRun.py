@@ -1,10 +1,16 @@
 from RandomHit import randomHits
 from Components import printcomponents
 from Calculations import calcSurvival
+from StatsCalc import statsCalc
+results = []
 
 def main():
-    ##for i in range(1000):
+    for i in range(1000):
         simulateFlight()
+
+    statsCalc(results)
+
+    
 
 def simulateFlight():
     components = [
@@ -15,10 +21,8 @@ def simulateFlight():
     {"name": "wing_right", "health": 100, "failure": 0}]
 
     part, damage = randomHits()
-    probSurvival, components= calcSurvival(part, damage, components)
-    print(f"prob survival {probSurvival}\n")
-    printcomponents(components)
-    print(probSurvival)
+    result = calcSurvival(part, damage, components)
+    results.append(result)
     
 
 if __name__ == "__main__":
