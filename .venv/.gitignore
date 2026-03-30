@@ -1,0 +1,7 @@
+*.cfg
+*.bat
+*.exe
+Scripts/
+Lib/
+*.env
+*.csv
